@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Präsentation</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+            background-color: #f0f0f0;
+            color: #333;
+            font-family: Arial, sans-serif;
+            background-color: #070620;
+        }
+
+    ul li{
+        font-size: 30px;
+    }
+
+    h1{
+        font-size: 60px;
+    }
+
+        .slide {
+            display: none;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 1s ease-in-out; /* Übergangseffekt für alle Slides */
+        }
+
+        #slide1 {
+            display: flex;
+            flex-direction: column; /* Text untereinander anordnen */
+            justify-content: center;
+            align-items: center;
+            background: url('./bg.jpeg') center/cover ;
+            color: #fff;
+            background-repeat: no-repeat;
+            
+            background-color: rgba(0, 0, 0, 0.7);
+            
+        }
+
+        #slide2 {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding: 100px;
+            
+            color: white;
+            background: url('./djanlage.jpg') center/cover ;
+            background-position-y: -500px;
+            background-repeat: no-repeat;
+            
+            
+            background-color: rgba(0, 0, 0, 0.7);
+            
+        }
+
+        #slide2 img {
+            margin-left: 300px; /* Abstand zwischen Text und Bild */
+            max-width: 100%; /* Bildgröße anpassen */
+            height: auto;
+            background-color: rgb(50, 38, 116);
+            border-radius: 50%;
+        }
+
+        #slide2 h1 {
+            order: 1; /* Ändert die Reihenfolge von h1 */
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        #slide2 img {
+            order: 3; /* Ändert die Reihenfolge des Bildes */
+        }
+
+        #slide2 ul {
+            order: 2; /* Ändert die Reihenfolge der Liste */
+            margin-top: 20px; /* Abstand zwischen Text/Bild und Liste */
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 10px;
+            list-style-type: none;
+        }
+
+        #slide2 #textauflistung{
+            margin-left: 100px;
+        }
+
+
+        #slide3 {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding: 100px;
+            color: white;
+            background: url('./Sound_01.jpg') center/cover ;
+            background-repeat: no-repeat;
+            background-color: rgba(0, 0, 0, 0.7);
+            
+        }
+
+        #slide3 img {
+            margin-left: 500px; /* Abstand zwischen Text und Bild */
+            max-width: 100%; /* Bildgröße anpassen */
+            height: auto;
+            background-color: rgb(50, 38, 116);
+            border-radius: 10%;
+            order: 2;
+        }
+
+        #slide3 h1 {
+            order: 1; /* Ändert die Reihenfolge von h1 */
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 10px;
+            order: 1;
+            margin-left: 100px;
+        }
+
+        #slide4 {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding: 100px;
+            color: white;
+            background: url('./') center/cover ;
+            background-position-y: -500px;
+            background-repeat: no-repeat;
+            background-color: rgb(22, 9, 78);
+            
+        }
+
+        #slide4 img {
+            margin-left: 100px; /* Abstand zwischen Text und Bild */
+            max-width: 100%; /* Bildgröße anpassen */
+            
+            background-color: rgb(50, 38, 116);
+            border-radius: 10px;
+            width: 60%;
+        }
+
+        #slide4 h1 {
+            order: 1; /* Ändert die Reihenfolge von h1 */
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        #slide5 {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding: 100px;
+            
+            color: white;
+            background: url('./bsp1.jpg') center/cover ;
+            
+            background-repeat: no-repeat;
+            background-color: rgba(0, 0, 0, 0.7);
+            
+        }
+
+        #slide5 img {
+            margin-left: 100px; /* Abstand zwischen Text und Bild */
+            max-width: 100%; /* Bildgröße anpassen */
+            
+            background-color: rgb(50, 38, 116);
+            border-radius: 10px;
+            width: 50%;
+            margin-top: 100px;
+        }
+
+        #slide5 h1 {
+            order: 1; /* Ändert die Reihenfolge von h1 */
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 10px;
+        }
+        #slide5 ul {
+            order: 2; /* Ändert die Reihenfolge der Liste */
+            margin-top: 20px; /* Abstand zwischen Text/Bild und Liste */
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 10px;
+            list-style-type: none;
+        }
+
+        #slide5 #textauflistung{
+            margin-left: 0px;
+        }
+
+        #slide6 {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding: 100px;
+            
+            color: white;
+            background: url('./bsp1.jpg') center/cover ;
+            
+            background-repeat: no-repeat;
+            background-color: rgba(0, 0, 0, 0.7);
+            
+        }
+
+        #slide6 img {
+            margin-left: 100px; /* Abstand zwischen Text und Bild */
+            max-width: 100%; /* Bildgröße anpassen */
+            
+            background-color: rgb(50, 38, 116);
+            border-radius: 10px;
+            width: 50%;
+            margin-top: 100px;
+        }
+
+        #slide6 h1 {
+            order: 1; /* Ändert die Reihenfolge von h1 */
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 10px;
+        }
+        #slide6 ul {
+            order: 2; /* Ändert die Reihenfolge der Liste */
+            margin-top: 20px; /* Abstand zwischen Text/Bild und Liste */
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 10px;
+            list-style-type: none;
+        }
+
+        #slide6 #textauflistung{
+            margin-left: 0px;
+        }
+
+        #slide7 {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding: 100px;
+            
+            color: white;
+            background: url('./bsp1.jpg') center/cover ;
+            
+            background-repeat: no-repeat;
+            background-color: rgba(0, 0, 0, 0.7);
+            
+        }
+
+        #slide7 img {
+            margin-left: 100px; /* Abstand zwischen Text und Bild */
+            max-width: 100%; /* Bildgröße anpassen */
+            
+            background-color: rgb(50, 38, 116);
+            border-radius: 10px;
+            width: 50%;
+            margin-top: 100px;
+        }
+
+        #slide7 h1 {
+            order: 1; /* Ändert die Reihenfolge von h1 */
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 10px;
+        }
+        #slide7 ul {
+            order: 2; /* Ändert die Reihenfolge der Liste */
+            margin-top: 20px; /* Abstand zwischen Text/Bild und Liste */
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 10px;
+            list-style-type: none;
+        }
+
+        #slide7 #textauflistung{
+            margin-left: 0px;
+        }
+
+        #slide8 {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding: 100px;
+            
+            color: white;
+            background: url('./bsp1.jpg') center/cover ;
+            
+            background-repeat: no-repeat;
+            background-color: rgba(0, 0, 0, 0.7);
+            
+        }
+
+        #slide8 img {
+            margin-left: 100px; /* Abstand zwischen Text und Bild */
+            max-width: 100%; /* Bildgröße anpassen */
+            
+            background-color: rgb(50, 38, 116);
+            border-radius: 10px;
+            width: 50%;
+            margin-top: 100px;
+        }
+
+        #slide8 h1 {
+            order: 1; /* Ändert die Reihenfolge von h1 */
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 10px;
+        }
+        #slide8 ul {
+            order: 2; /* Ändert die Reihenfolge der Liste */
+            margin-top: 20px; /* Abstand zwischen Text/Bild und Liste */
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 10px;
+            list-style-type: none;
+        }
+
+        #slide8 #textauflistung{
+            margin-left: 0px;
+        }
+
+        #slide9 {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding: 100px;
+            
+            color: white;
+            background: url('./bsp1.jpg') center/cover ;
+            
+            background-repeat: no-repeat;
+            background-color: rgba(0, 0, 0, 0.7);
+            
+        }
+
+        #slide9 img {
+            margin-left: 100px; /* Abstand zwischen Text und Bild */
+            max-width: 100%; /* Bildgröße anpassen */
+            
+            background-color: rgb(50, 38, 116);
+            border-radius: 10px;
+            width: 50%;
+            margin-top: 100px;
+        }
+
+        #slide9 h1 {
+            order: 1; /* Ändert die Reihenfolge von h1 */
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 10px;
+        }
+        #slide9 ul {
+            order: 2; /* Ändert die Reihenfolge der Liste */
+            margin-top: 20px; /* Abstand zwischen Text/Bild und Liste */
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 10px;
+            list-style-type: none;
+        }
+
+        #slide9 #textauflistung{
+            margin-left: 0px;
+        }
+
+
+
+        #slide10 {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding: 100px;
+            color: white;
+            background: url('./Sound_01.jpg') center/cover ;
+            background-repeat: no-repeat;
+            background-color: rgba(0, 0, 0, 0.7);
+            
+        }
+
+        #slide10 img {
+            margin-left: 100px; /* Abstand zwischen Text und Bild */
+            max-width: 100%; /* Bildgröße anpassen */
+            height: auto;
+            background-color: rgb(50, 38, 116);
+            border-radius: 10%;
+            order: 2;
+            width: 40%;
+        }
+
+        #slide10 h1 {
+            order: 1; /* Ändert die Reihenfolge von h1 */
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 50px;
+            
+            margin-left: 100px;
+        }
+
+       
+
+        #slide11, #slide12, #slide13, #slide14, #slide15, #slide16, #slide17, #slide18, #slide19{
+            display: flex;
+            flex-direction: column; /* Text untereinander anordnen */
+            justify-content: center;
+            align-items: center;
+            
+            color: #fff;
+            background-repeat: no-repeat;
+            
+            background-color: rgb(17, 28, 77);
+        }
+        .current-slide {
+            display: block;
+            opacity: 1;
+        }
+
+        #screenCover {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="screenCover" onclick="nextSlide()"></div>
+    <div class="slide current-slide" id="slide1">
+        <h1 style="font-size: 100px;" id="mitte">Tontechnik</h1>
+        <h3>by Astner Andreas</h3>
+    </div>
+    <div class="slide" id="slide2">
+<div id="textauflistung">
+        <h1 >Inhalt:</h1>
+        
+    <ul>
+        <li >Einleitung</li> <br>
+        
+        <br>
+        <li >->Anschlüsse</li>
+        <li >->XLR</li>
+        <li >->AUX</li>
+        <li >->OPTISCH</li>
+        <li >->RCA</li>
+        <li >->PA</li>
+        <br>
+        <li >->Wie funktioniert ein Mischpult</li>
+        <li >->Was ist "Balance"</li>
+        <li >->Was ist "EQ"</li>
+        <li >->Was ist ein "Kompressor"</li>
+    </ul>
+</div>
+        <img src="mischpult1.png" alt="">
+    </div>
+    <div class="slide" id="slide3">
+        <h1 >Einleitung:</h1>
+
+        <img src="mischpult2.png" alt="">
+    </div>
+
+
+    <div class="slide" id="slide4">
+        <h1>Anschlüsse:</h1>
+        <img src="alleaudiokabel.png" alt="" style="order: 1;">
+        
+    </div>
+
+    <div class="slide" id="slide5">
+        <div id="textauflistung">
+        <h1 >XLR (Cannon-Stecker)</h1>
+        
+        <ul>
+            <li>XLR ist der Industriestandart</li>
+        </ul>
+        </div>
+        <img src="xlr.png" alt="" style="order: 3;">
+    </div>
+    
+    <div class="slide" id="slide6">
+        <div id="textauflistung">
+        <h1 >AUX (Auxiliary)</h1>
+        
+        <ul>
+            <li>AUX ist scheiße</li>
+        </ul>
+        </div>
+        <img src="klinke6,3.png" alt="" style="order: 3;">
+    </div>
+
+    <div class="slide" id="slide7">
+        <div id="textauflistung">
+        <h1 >OPTISCH (TOSLINK)</h1>
+        
+        <ul>
+            <li>Geiler scheiß</li>
+        </ul>
+        </div>
+        <img src="optic.png" alt="" style="order: 3;">
+    </div>
+
+    <div class="slide" id="slide8">
+        <div id="textauflistung">
+        <h1 >RCA (Cinch)</h1>
+        
+        <ul>
+            <li>RCA ist alt</li>
+        </ul>
+        </div>
+        <img src="rca.png" alt="" style="order: 3;">
+    </div>
+
+    <div class="slide" id="slide9">
+        <div id="textauflistung">
+        <h1 >PA (Public Address)</h1>
+        
+        <ul>
+            <li>PA hab ich nd</li>
+        </ul>
+        </div>
+        <img src="pa.png" alt="" style="order: 3;">
+    </div>
+
+    <div class="slide" id="slide10">
+        <h1 >Wie funktioniert ein Mischpult</h1>
+        <img src="mischpult.jpg" alt="">
+    </div>
+    <div class="slide" id="slide11">
+        <img src="mischpult top.jpg" alt="">
+    </div>
+    <div class="slide" id="slide12">
+        <img src="mischpultout.jpg" alt="">
+    </div>
+    <div class="slide" id="slide13">
+        <img src="mischpultfaders.jpg" alt="">
+    </div>
+    <div class="slide" id="slide14">
+        <img src="mischpulteqs.jpg" alt="">
+    </div>
+    <div class="slide" id="slide15">
+        <h1 >Was ist ein Kompressor</h1>
+    </div>
+    <div class="slide" id="slide16">
+        <img src="komp.jpg" alt="" style="width: 70%;">
+    </div>
+    <div class="slide" id="slide17">
+        <img src="kompressorbsp.png" alt="" style="width: 70%;">
+    </div>
+    <div class="slide" id="slide18">
+        <h1 style="font-size: 100px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Danke für eure Aufmerksamkeit!</h1>
+    </div>
+    <div class="slide" id="slide19" style="background-color: black;">
+        
+    </div>
+    
+
+
+
+    
+
+    <script>
+        let currentSlide = 1;
+
+        function showSlide(slideNumber) {
+            document.querySelectorAll('.slide').forEach(slide => {
+                slide.classList.remove('current-slide');
+            });
+
+            const currentSlideElement = document.getElementById(`slide${slideNumber}`);
+            currentSlideElement.classList.add('current-slide');
+        }
+
+        function nextSlide() {
+            currentSlide++;
+            if (currentSlide > 19) {
+                currentSlide = 1;
+            }
+            showSlide(currentSlide);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Nicht mehr benötigt: document.getElementById('screenCover').addEventListener('click', nextSlide);
+        });
+    </script>
+</body>
+</html>

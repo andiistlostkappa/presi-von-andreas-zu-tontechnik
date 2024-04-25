@@ -1,0 +1,14 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#slide1{
+    background-color: rgb(25, 25, 56);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
